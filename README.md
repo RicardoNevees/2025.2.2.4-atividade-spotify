@@ -11,21 +11,29 @@ atividade avaliativa de reprodução de UI Web a partir de imagem
    - [Responsividade](#responsividade)
    - [Finalização](#finalização)
 
+---
+
 ## Objetivo
 Reproduzir a interface de usuário do Spotify utilizando HTML5 e CSS3 externo com abordagem mobile-first, baseando-se nos protótipos fornecidos.
 
 ## Protótipos
 Os protótipos de referência estão disponíveis no diretório `prototipos/`:
-- `spotify-mobile.png` - Design para dispositivos móveis
-- `spotify-desktop.png` - Design para desktop
+- `spotify-mobile.png` - [Design para dispositivos móveis](prototipos/spotify-mobile.png)
+- `spotify-desktop.png` - [Design para desktop](prototipos/spotify-desktop.png)
+
+---
 
 ## Checklist de Implementação
+
+---
 
 ### Preparação
 - [ ] Analisar os protótipos mobile e desktop
 - [ ] Identificar os componentes principais da interface
 - [ ] Planejar a estrutura semântica do HTML
 - [ ] Definir breakpoints para responsividade
+
+---
 
 ### Estrutura HTML
 - [ ] Criar arquivo `index.html` na raiz do projeto
@@ -42,10 +50,11 @@ Os protótipos de referência estão disponíveis no diretório `prototipos/`:
   - [ ] Main (conteúdo principal)
   - [ ] Footer (rodapé)
 - [ ] Adicionar conteúdo textual e imagens conforme protótipo mobile
-- [ ] Validar HTML em https://validator.w3.org/
+
+---
 
 ### Estilização CSS3 Mobile First
-- [ ] Criar arquivo `style.css` (recomendado: criar pasta `css/` e salvar como `css/style.css`)
+- [ ] Criar arquivo `spotify.css` (recomendado: criar pasta `css/` e salvar como `css/style.css`)
 - [ ] Configurar reset/normalize CSS:
   - [ ] Remover margens e paddings padrão
   - [ ] Definir box-sizing como border-box
@@ -66,6 +75,8 @@ Os protótipos de referência estão disponíveis no diretório `prototipos/`:
   - [ ] Bordas arredondadas (border-radius)
   - [ ] Gradientes (se aplicável)
 
+---
+
 ### Responsividade
 - [ ] Implementar media queries para tablet (min-width: 768px):
   - [ ] Ajustar layouts
@@ -76,6 +87,8 @@ Os protótipos de referência estão disponíveis no diretório `prototipos/`:
   - [ ] Ajustar larguras máximas
   - [ ] Otimizar espaçamentos
 - [ ] Testar em diferentes tamanhos de tela (sugestão: 320px, 768px, 1024px, 1440px) usando DevTools do navegador
+
+---
 
 ### Finalização
 - [ ] Testar a página em navegadores diferentes (Chrome, Firefox, Safari, Edge)
