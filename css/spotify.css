@@ -1,0 +1,154 @@
+/* Configurações Iniciais (Reset) 
+    Removo as margens padrão do navegador para ter controle total do layout.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho dos elementos */
+}
+
+body {
+    background-color: #121212; /* Fundo escuro padrão Spotify */
+    color: #ffffff;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    padding-bottom: 100px; /* Espaço para o menu inferior não cobrir o conteúdo */
+}
+
+/* --- CABEÇALHO (HEADER) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
+}
+
+.greeting {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.settings-btn {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: white;
+}
+
+/* --- GRADE DE ACESSO RÁPIDO (QUICK ACCESS) --- */
+.quick-access {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide a tela em duas colunas iguais */
+    gap: 8px;
+    padding: 0 15px;
+}
+
+.card-mini {
+    background-color: rgba(255, 255, 255, 0.1); /* Efeito levemente acinzentado */
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 56px;
+    transition: background-color 0.3s ease;
+}
+
+.card-mini:active {
+    background-color: rgba(255, 255, 255, 0.2); /* Efeito ao clicar no mobile */
+}
+
+.card-mini img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover; /* Garante que a foto preencha o quadrado sem deformar */
+}
+
+.card-mini span {
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 0 10px;
+    /* Impede que nomes muito longos quebrem o card */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- SEÇÕES DE CONTEÚDO E CAROUSEL --- */
+.content-section {
+    margin-top: 30px;
+    padding: 0 15px;
+}
+
+.content-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* O segredo do scroll horizontal */
+.carousel {
+    display: flex;
+    overflow-x: auto; /* Permite arrastar para o lado */
+    gap: 15px;
+    padding-bottom: 10px;
+    /* Esconde a barra de scroll em alguns navegadores para ficar mais limpo */
+    scrollbar-width: none; 
+}
+
+.carousel::-webkit-scrollbar {
+    display: none; /* Esconde a barra no Chrome/Safari */
+}
+
+.card-standard {
+    min-width: 150px; /* Largura fixa para forçar o conteúdo a sair da tela */
+}
+
+.card-standard img {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+.card-standard p {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #b3b3b3; /* Cor cinza para o texto secundário */
+}
+
+/* --- MENU INFERIOR FIXO (FOOTER) --- */
+.main-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(to top, #000 0%, rgba(0,0,0,0.9) 100%);
+    padding: 10px 0;
+}
+
+.mobile-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #b3b3b3;
+    font-size: 0.65rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-item span {
+    font-weight: 400;
+}
+
+/* Estilo para quando o ícone estiver "ativo" (simulado) */
+.nav-item:first-child {
+    color: #ffffff;
+}
