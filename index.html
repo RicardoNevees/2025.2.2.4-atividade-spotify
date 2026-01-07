@@ -9,31 +9,37 @@
 <body>
 
     <div class="app-wrapper">
+        <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox" hidden>
+        
         <header class="top-navigation">
+            <label for="sidebar-toggle" class="menu-toggle" aria-label="Abrir menu">☰</label>
+            
             <div class="nav-left">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Logo" class="top-logo-bw">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Logo do Spotify" class="top-logo-bw">
             </div>
 
             <div class="nav-center">
-                <div class="home-btn-bw">🏠</div>
+                <div class="home-btn-bw" aria-label="Página inicial">🏠</div>
                 <div class="search-bar-wrapper">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" placeholder="O que você quer ouvir?" class="top-search-input">
+                    <span class="search-icon" aria-hidden="true">🔍</span>
+                    <input type="text" placeholder="O que você quer ouvir?" class="top-search-input" aria-label="Buscar músicas">
                 </div>
             </div>
 
             <div class="nav-right">
                 <button class="premium-btn">Ver planos Premium</button>
-                <button class="install-btn-bw"><span class="circle-arrow">⬇</span> Instalar aplicativo</button>
-                <div class="notification-btn-bw">🔔</div>
+                <button class="install-btn-bw"><span class="circle-arrow">⬇</span> <span class="install-text">Instalar aplicativo</span></button>
+                <div class="notification-btn-bw" aria-label="Notificações">🔔</div>
                 <div class="user-menu">
-                    <img src="assets/Ric-Perfil-Spotify.jpeg" alt="Perfil" class="profile-pic">
+                    <img src="assets/Ric-Perfil-Spotify.jpeg" alt="Foto de perfil do usuário" class="profile-pic">
                 </div>
             </div>
         </header>
 
         <div class="main-layout">
             <aside class="sidebar-container">
+                <label for="sidebar-toggle" class="close-sidebar" aria-label="Fechar menu">✕</label>
+                
                 <nav class="side-nav">
                     <a href="#" class="side-item active">🏠 <span>Início</span></a>
                     <a href="#" class="side-item">🔍 <span>Buscar</span></a>
@@ -42,73 +48,73 @@
                         <div class="bands-list">
                             <div class="band-item">
                                 <div class="band-icon">
-                                    <img src="assets/AvengedSevenfold.png" alt="Avenged Sevenfold">
+                                    <img src="assets/AvengedSevenfold.png" alt="Logo da banda Avenged Sevenfold">
                                 </div>
                                 <span>Avenged Sevenfold</span>
-                                <button class="band-play-btn">▶</button>
+                                <button class="band-play-btn" aria-label="Reproduzir Avenged Sevenfold">▶</button>
                             </div>
                             <div class="band-item">
                                 <div class="band-icon">
-                                    <img src="assets/BreakingBenjamin.png" alt="Breaking Benjamin">
+                                    <img src="assets/BreakingBenjamin.png" alt="Logo da banda Breaking Benjamin">
                                 </div>
                                 <span>Breaking Benjamin</span>
-                                <button class="band-play-btn">▶</button>
+                                <button class="band-play-btn" aria-label="Reproduzir Breaking Benjamin">▶</button>
                             </div>
                             <div class="band-item">
                                 <div class="band-icon">
-                                    <img src="assets/LinkinPark.png" alt="Linkin Park">
+                                    <img src="assets/LinkinPark.png" alt="Logo da banda Linkin Park">
                                 </div>
                                 <span>Linkin Park</span>
-                                <button class="band-play-btn">▶</button>
+                                <button class="band-play-btn" aria-label="Reproduzir Linkin Park">▶</button>
                             </div>
                             <div class="band-item">
                                 <div class="band-icon">
-                                    <img src="assets/Metallica.png" alt="Metallica">
+                                    <img src="assets/Metallica.png" alt="Logo da banda Metallica">
                                 </div>
                                 <span>Metallica</span>
-                                <button class="band-play-btn">▶</button>
+                                <button class="band-play-btn" aria-label="Reproduzir Metallica">▶</button>
                             </div>
                             <div class="band-item">
                                 <div class="band-icon">
-                                    <img src="assets/sebastian.png" alt="Sebastian">
+                                    <img src="assets/sebastian.png" alt="Logo do Sebastian">
                                 </div>
                                 <span>Sebastian</span>
-                                <button class="band-play-btn">▶</button>
+                                <button class="band-play-btn" aria-label="Reproduzir Sebastian">▶</button>
                             </div>
                             <div class="band-item">
                                 <div class="band-icon">
-                                    <img src="assets/TenaciousD.png" alt="Tenacious D">
+                                    <img src="assets/TenaciousD.png" alt="Logo da banda Tenacious D">
                                 </div>
                                 <span>Tenacious D</span>
-                                <button class="band-play-btn">▶</button>
+                                <button class="band-play-btn" aria-label="Reproduzir Tenacious D">▶</button>
                             </div>
                             <div class="band-item">
                                 <div class="band-icon">
-                                    <img src="assets/SOAD.png" alt="System of a Down">
+                                    <img src="assets/SOAD.png" alt="Logo da banda System of a Down">
                                 </div>
                                 <span>System of a Down</span>
-                                <button class="band-play-btn">▶</button>
+                                <button class="band-play-btn" aria-label="Reproduzir System of a Down">▶</button>
                             </div>
                             <div class="band-item">
                                 <div class="band-icon">
-                                    <img src="assets/Evanescence.png" alt="Evanescence">
+                                    <img src="assets/Evanescence.png" alt="Logo da banda Evanescence">
                                 </div>
                                 <span>Evanescence</span>
-                                <button class="band-play-btn">▶</button>
+                                <button class="band-play-btn" aria-label="Reproduzir Evanescence">▶</button>
                             </div>
                             <div class="band-item">
                                 <div class="band-icon">
-                                    <img src="assets/Seal.png" alt="Seal">
+                                    <img src="assets/Seal.png" alt="Logo do cantor Seal">
                                 </div>
                                 <span>Seal</span>
-                                <button class="band-play-btn">▶</button>
+                                <button class="band-play-btn" aria-label="Reproduzir Seal">▶</button>
                             </div>
                             <div class="band-item">
                                 <div class="band-icon">
-                                    <img src="assets/MichaelJackson.png" alt="Michael Jackson">
+                                    <img src="assets/MichaelJackson.png" alt="Logo do cantor Michael Jackson">
                                 </div>
                                 <span>Michael Jackson</span>
-                                <button class="band-play-btn">▶</button>
+                                <button class="band-play-btn" aria-label="Reproduzir Michael Jackson">▶</button>
                             </div>
                         </div>
                     </div>
@@ -121,77 +127,77 @@
                     <div class="quick-grid">
                         <div class="mini-card">
                             <div class="mini-img-container">
-                                <img src="assets/Metallica.png" alt="Metallica">
+                                <img src="assets/Metallica.png" alt="Álbum do Metallica">
                             </div>
                             <span>Metallica</span>
-                            <button class="play-btn-green">▶</button>
+                            <button class="play-btn-green" aria-label="Reproduzir Metallica">▶</button>
                         </div>
                         <div class="mini-card">
                             <div class="mini-img-container">
-                                <img src="assets/LinkinPark.png" alt="Linkin Park">
+                                <img src="assets/LinkinPark.png" alt="Álbum do Linkin Park">
                             </div>
                             <span>Linkin Park</span>
-                            <button class="play-btn-green">▶</button>
+                            <button class="play-btn-green" aria-label="Reproduzir Linkin Park">▶</button>
                         </div>
                         <div class="mini-card">
                             <div class="mini-img-container">
-                                <img src="assets/sebastian.png" alt="Sebastian Mix">
+                                <img src="assets/sebastian.png" alt="Álbum do Sebastian">
                             </div>
                             <span>Sebastian Mix</span>
-                            <button class="play-btn-green">▶</button>
+                            <button class="play-btn-green" aria-label="Reproduzir Sebastian Mix">▶</button>
                         </div>
                         <div class="mini-card">
                             <div class="mini-img-container">
-                                <img src="assets/MichaelJackson.png" alt="Michael Jackson">
+                                <img src="assets/MichaelJackson.png" alt="Álbum do Michael Jackson">
                             </div>
                             <span>Michael Jackson</span>
-                            <button class="play-btn-green">▶</button>
+                            <button class="play-btn-green" aria-label="Reproduzir Michael Jackson">▶</button>
                         </div>
                         <div class="mini-card">
                             <div class="mini-img-container">
-                                <img src="assets/Evanescence.png" alt="Evanescence">
+                                <img src="assets/Evanescence.png" alt="Álbum do Evanescence">
                             </div>
                             <span>Evanescence</span>
-                            <button class="play-btn-green">▶</button>
+                            <button class="play-btn-green" aria-label="Reproduzir Evanescence">▶</button>
                         </div>
                         <div class="mini-card">
                             <div class="mini-img-container">
-                                <img src="assets/SOAD.png" alt="System of a Down">
+                                <img src="assets/SOAD.png" alt="Álbum do System of a Down">
                             </div>
                             <span>System of a Down</span>
-                            <button class="play-btn-green">▶</button>
+                            <button class="play-btn-green" aria-label="Reproduzir System of a Down">▶</button>
                         </div>
                     </div>
                 </section>
 
                 <section class="main-section">
-                    <h2>Feito para Ricardo Neves</h2>
+                    <h2>Estações recomendadas</h2>
                     <div class="carousel-container">
                         <div class="album-card">
                             <div class="album-img-container">
                                 <img src="assets/Metallica.png" alt="Rádio de Metallica">
-                                <button class="play-large">▶</button>
+                                <button class="play-large" aria-label="Reproduzir Rádio de Metallica">▶</button>
                             </div>
                             <p>Rádio de Metallica</p>
                         </div>
                         <div class="album-card">
                             <div class="album-img-container">
                                 <img src="assets/sebastian.png" alt="Playlist do Sebastian">
-                                <button class="play-large">▶</button>
+                                <button class="play-large" aria-label="Reproduzir Playlist do Sebastian">▶</button>
                             </div>
                             <p>Playlist do Sebastian</p>
                         </div>
                         <div class="album-card">
                             <div class="album-img-container">
                                 <img src="assets/MichaelJackson.png" alt="Michael Jackson Mix">
-                                <button class="play-large">▶</button>
+                                <button class="play-large" aria-label="Reproduzir Michael Jackson Mix">▶</button>
                             </div>
                             <p>Michael Jackson Mix</p>
                         </div>
                         <div class="album-card">
                             <div class="album-img-container">
                                 <img src="assets/Seal.png" alt="Rádio de Seal">
-                                <button class="play-large">▶</button>
+                                <button class="play-large" aria-label="Reproduzir Rádio de Seal">▶</button>
                             </div>
                             <p>Rádio de Seal</p>
                         </div>
@@ -199,6 +205,52 @@
                 </section>
             </main>
         </div>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Empresa</h3>
+                        <ul>
+                            <li><a href="#">Sobre</a></li>
+                            <li><a href="#">Empregos</a></li>
+                            <li><a href="#">For the Record</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Comunidades</h3>
+                        <ul>
+                            <li><a href="#">Para Artistas</a></li>
+                            <li><a href="#">Desenvolvedores</a></li>
+                            <li><a href="#">Publicidade</a></li>
+                            <li><a href="#">Investidores</a></li>
+                            <li><a href="#">Fornecedores</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Links úteis</h3>
+                        <ul>
+                            <li><a href="#">Suporte</a></li>
+                            <li><a href="#">Player da Web</a></li>
+                            <li><a href="#">Aplicativo móvel grátis</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-bottom-links">
+                        <a href="#">Legal</a>
+                        <a href="#">Centro de Privacidade</a>
+                        <a href="#">Política de privacidade</a>
+                        <a href="#">Cookies</a>
+                        <a href="#">Sobre anúncios</a>
+                    </div>
+                    <div class="copyright">
+                        © 2024 Spotify Clone - IFRN TADS
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 
 </body>
