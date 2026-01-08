@@ -1,786 +1,208 @@
-/* Reset básico para evitar diferenças entre navegadores */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Estilo base do projeto */
 body {
-  background-color: #000;
+  background: #000;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* =========================
-   TOPO
-   ========================= */
-
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: #000;
-}
-
-
-/* esquerda, centro e direita ocupam o mesmo peso */
-.topbar-left,
-.topbar-center,
-.topbar-right {
-  flex: 1;
+/* ================= HEADER ================= */
+.header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #000;
 }
-
-/* centro realmente centralizado */
-.topbar-center {
-  justify-content: center;
-  gap: 16px;
-}
-
-/* esquerda alinhada à esquerda */
-.topbar-left {
-  justify-content: flex-start;
-}
-
-/* direita alinhada à direita */
-.topbar-right {
-  justify-content: flex-end;
-}
-
 
 .logo {
   width: 28px;
 }
 
-/* =========================
-   ESTRUTURA PRINCIPAL
-   ========================= */
-
-/* Layout principal em 3 colunas (desktop) */
-.app {
-  display: grid;
-  grid-template-columns: 260px 1fr 260px;
-  gap: 8px;
-  padding: 8px;
+.search,
+.header-actions {
+  display: none;
 }
 
-/* =========================
-   COLUNA A DIREITA
-   ========================= */
-
-   /* Coluna direita */
-.right-panel {
-  background: #000;
-  border-radius: 8px;
-  padding: 16px;
+/* ================= LAYOUT MOBILE ================= */
+.layout {
+  display: block;
 }
 
-.right-title {
-  font-size: 0.9rem;
-  margin-bottom: 12px;
+.sidebar,
+.right-panel,
+.player {
+  display: none;
 }
-
-.right-card {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.right-card img {
-  width: 64px;
-  height: 64px;
-  border-radius: 8px;
-}
-
-.right-info span {
-  font-size: 0.75rem;
-  color: #b3b3b3;
-}
-
-.right-description {
-  font-size: 0.75rem;
-  color: #b3b3b3;
-}
-
-/* no Mobile, essa coluna não aparece */
-@media (max-width: 1023px) {
-  .app {
-    grid-template-columns: 1fr;
-  }
-
-  .right-panel {
-    display: none;
-  }
-}
-
-
-/* =========================
-   SIDEBAR (DESKTOP)
-   ========================= */
-
-.sidebar {
-  height: calc(100vh - 64px); /* altura da tela menos a topbar */
-  position: sticky;
-  top: 64px;
-  overflow-y: auto;
-}
-
-
-.menu a {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #b3b3b3;
-}
-
-.menu a.active {
-  color: #fff;
-}
-
-.library-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #fff;
-  padding: 8px;
-  margin-bottom: 12px;
-}
-
-
-
-/* Lista de bandas fica com menos destaque que o menu */
-.band-list {
-  margin-top: 24px;
-  list-style: none;
-}
-
-/* Itens da lista de bandas */
-.band-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  color: #b3b3b3;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-/* Hover igual ao botão "Músicas Curtidas" */
-.band-list li:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-}
-
-.band-list li:hover img {
-  opacity: 1;
-}
-
-
-
-.band-list img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%; /* transforma em bola */
-  object-fit: keep; /* mantém proporção */
-  .band-list img {
-  background: #181818;
-}
-}
-
-/* Estrutura do item da banda */
-.band-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Texto da banda em duas linhas */
-.band-info {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-/* Nome da banda */
-.band-name {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #fff;
-}
-
-/* Tipo (Artista) */
-.band-type {
-  font-size: 0.7rem;
-  color: #b3b3b3;
-}
-
-
-/* =========================
-   CONTEÚDO
-   ========================= */
 
 .content {
-  height: calc(100vh - 64px);
-  overflow-y: auto;
-  padding-bottom: 100px; /* espaço para o player */
+  padding: 16px;
+  padding-bottom: 90px;
 }
 
+/* ================= COMPONENTES ================= */
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 
-
-/* Limita a largura sem quebrar o flex */
-.content-inner {
-  max-width: 1200px;
-}
-
-
-/* Título principal */
-.desktop-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 24px;
-}
-
-/* Filtros do conteúdo principal */
-.content-filters {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: #121212;
-  padding: 12px 0;
-}
-
-.filter-chip {
+.filters button {
   background: #2a2a2a;
   border: none;
-  border-radius: 999px;
-  padding: 6px 14px;
-  font-size: 0.8rem;
   color: #fff;
-  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 999px;
 }
 
-.filter-chip.active {
+.filters .active {
   background: #fff;
   color: #000;
 }
 
-/* Cards grandes logo abaixo dos filtros */
-.highlight-cards {
+.highlights {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
-.highlight-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: #2a2a2a;
+.highlight {
+  background: #181818;
   padding: 12px;
   border-radius: 8px;
-  cursor: pointer;
-}
-
-.highlight-card img {
-  width: 56px;
-  height: 56px;
-  border-radius: 4px;
-}
-
-.highlight-card span {
-  font-weight: 600;
-}
-
-/* Título "Feito para" */
-.section-title {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
+  gap: 10px;
+  align-items: center;
 }
 
-/* Linha superior */
-.section-subtitle {
-  font-size: 0.55rem;
-  color: #b3b3b3;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-}
-
-/* Linha principal */
-.section-main {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.light-text {
-  color: #b3b3b3;
-  font-weight: 500;
-}
-
-/* Carrossel "Feito para você" */
-.band-grid {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-}
-
-/* remove quebra de linha */
-.band-grid::-webkit-scrollbar {
-  height: 6px;
-}
-
-.band-grid::-webkit-scrollbar-thumb {
-  background: #535353;
-  border-radius: 4px;
-}
-
-.band-grid::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.band-card {
-  min-width: 140px;     /* antes estava grande demais */
-  padding: 10px;
-  background: #181818;
-  border-radius: 8px;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-
-
-.band-card img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-  border-radius: 6px;
-}
-
-.band-card span {
-  display: block;
-  margin-top: 8px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-
-/* =========================
-   ESTAÇÕES RECOMENDADAS
-   ========================= */
-
-.stations h2 {
-  font-size: 1.2rem;
-  margin-bottom: 16px;
+.highlight img {
+  width: 48px;
+  height: 48px;
 }
 
 .carousel {
   display: flex;
   gap: 16px;
   overflow-x: auto;
+  margin-bottom: 24px;
 }
 
-/* Cards das estações */
-.album {
-  background-color: #181818;
-  padding: 12px;
+.card {
+  min-width: 140px;
+  background: #181818;
   border-radius: 8px;
-  min-width: 180px;
+  padding: 10px;
 }
 
-.album img {
+.card img {
   width: 100%;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
-.album p {
-  margin-top: 8px;
-  font-size: 0.85rem;
-}
-
-/* =========================
-   DESKTOP
-   ========================= */
-
-@media (min-width: 1024px) {
-
-  .sidebar {
-    display: block;
-  }
-
-  .quick-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* =========================
-   HEADER DESKTOP
-   ========================= */
-
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 24px;
-  background-color: #000;
-}
-
-.topbar-left,
-.topbar-center,
-.topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.icon-btn {
-  background: #1a1a1a;
-  border: none;
-  color: #e5e5e5;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-/* remove qualquer tentativa de cor diferente */
-.icon-btn .icon {
-  color: inherit;
-}
-
-
-.search-box {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #1a1a1a;
-  padding: 8px 12px;
-  border-radius: 999px;
-  width: 360px;
-}
-
-.search-box input {
-  background: none;
-  border: none;
-  color: #fff;
-  outline: none;
-  width: 100%;
-}
-
-.premium-btn {
-  background: #fff;
-  color: #000;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 999px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.text-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-}
-
-.profile img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-}
-
-/* =========================
-   PLAYER INFERIOR
-   ========================= */
-
-.player {
+/* ================= MOBILE NAV ================= */
+.mobile-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #181818;
+  height: 72px;
+  background: #000;
   border-top: 1px solid #282828;
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: space-between;
-  padding: 8px 16px;
-  color: #fff;
 }
 
-.player-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.player-left img {
-  width: 56px;
-  height: 56px;
-}
-
-.player-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 24px; /* afasta os botões laterais */
-}
-
-/* Botões do player (sem fundo, apenas ícone) */
-.control-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+.mobile-nav button {
   background: none;
   border: none;
-  padding: 0;
-  color: #e5e5e5;
-}
-
-
-.controls span {
-  background: transparent !important;
-}
-
-/* Não aplica filtro em ícones de imagem */
-.controls img {
-  filter: none;
-}
-
-
-/* Botão repetir com imagem (sem fundo) */
-.repeat-btn img {
-  width: 20px;
-  height: 20px;
-  display: block;
-  
-  /* ajuste óptico fino */
-  transform: translateY(1px);
-}
-
-.main-control {
-  font-size: 1.4rem;
-}
-
-
-.progress {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.75rem;
-}
-
-.progress .bar {
-  width: 240px;
-  height: 4px;
-  background: #535353;
-  border-radius: 2px;
-  position: relative;
-}
-
-/* Parte já tocada da música */
-.progress .bar-played {
-  width: 30%; /* tempo decorrido (simulado) */
-  height: 100%;
-  background: #b3b3b3;
-  border-radius: 2px;
-}
-
-/* Remove cor de emojis usados como ícones */
-.icon-btn,
-.player-right,
-.controls span {
-  filter: grayscale(100%) brightness(1.8);
-}
-
-/* Cabeçalho da biblioteca */
-.library-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.library-title {
-  font-size: 0.95rem;
-  font-weight: 700;
   color: #fff;
-}
-
-/* Ícones + e expandir */
-.library-actions {
-  display: flex;
-  gap: 12px;
-}
-
-.library-icon {
-  font-size: 1rem;
-  color: #b3b3b3;
-  cursor: pointer;
-}
-
-.library-icon:hover {
-  color: #fff;
-}
-
-/* Filtros da biblioteca */
-.library-filters {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.filter-btn {
-  background: #2a2a2a;
-  border: none;
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 0.75rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-.filter-btn.active {
-  background: #fff;
-  color: #000;
-}
-
-/* Ferramentas acima da lista */
-.library-tools {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.tool-icon {
-  font-size: 0.9rem;
-  color: #b3b3b3;
-  cursor: pointer;
-}
-
-.library-sort {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.recent-text {
-  font-size: 0.75rem;
-  color: #b3b3b3;
-}
-
-/* Músicas Curtidas */
-.liked-songs {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-bottom: 12px;
-}
-
-.liked-songs:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-/* Caixa do coração */
-.liked-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  background: linear-gradient(135deg, #450af5, #c4efd9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 0.85rem;
-}
-
-/* Texto fora do ícone */
-.liked-text {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #fff;
-}
-
-/* =========================
-   COLUNA DIREITA (PROMO)
-   ========================= */
-
-.right-panel {
-  background: #000;
-  border-radius: 8px;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* corta a imagem certinho */
-}
-
-/* Imagem ocupa metade superior */
-.right-image {
-  height: 60%;
-}
-
-.right-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Conteúdo textual */
-.right-content {
-  padding: 28px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* Texto grande */
-.right-heading {
-  font-size: 1.1rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-/* Texto menor */
-.right-text {
+  align-items: center;
   font-size: 0.8rem;
-  color: #b3b3b3;
-  line-height: 1.4;
 }
 
-/* Botão de download */
-.download-btn {
-  margin-top: 12px;
-  background: #78da80;
-  color: #000;
-  border: none;
-  border-radius: 999px;
-  padding: 10px 16px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  cursor: pointer;
-  width: fit-content;
+/* ================= TABLET ================= */
+@media (min-width: 768px) {
+  .highlights {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.download-btn:hover {
-  transform: scale(1.03);
+/* ================= DESKTOP ================= */
+@media (min-width: 1024px) {
+
+  .search,
+  .header-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 260px 1fr 260px;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .sidebar,
+  .right-panel,
+  .player {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .content {
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+    padding-bottom: 100px;
+  }
+
+  .sidebar {
+    padding: 16px;
+    overflow-y: auto;
+  }
+
+  .library li {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .library img {
+    width: 32px;
+    border-radius: 50%;
+  }
+
+  .right-panel {
+    padding: 16px;
+  }
+
+  .player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #181818;
+    padding: 8px 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .player img {
+    width: 48px;
+  }
 }
