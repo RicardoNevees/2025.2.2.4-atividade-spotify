@@ -205,4 +205,78 @@ body {
   .player img {
     width: 48px;
   }
+
+  body {
+    overflow: hidden;
+  }
+
+  .sidebar,
+  .content,
+  .right-panel {
+    height: calc(100vh - 64px - 90px);
+    overflow-y: auto;
+  }
+
+  /* Esconde scrollbar por padrão */
+  .sidebar,
+  .content,
+  .right-panel {
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .sidebar::-webkit-scrollbar,
+  .content::-webkit-scrollbar,
+  .right-panel::-webkit-scrollbar {
+    width: 0;
+  }
+
+  /* Mostra scrollbar apenas no hover */
+  .sidebar:hover,
+  .content:hover,
+  .right-panel:hover {
+    scrollbar-width: thin;
+    scrollbar-color: #535353 transparent;
+  }
+
+  .sidebar:hover::-webkit-scrollbar,
+  .content:hover::-webkit-scrollbar,
+  .right-panel:hover::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb,
+  .content::-webkit-scrollbar-thumb,
+  .right-panel::-webkit-scrollbar-thumb {
+    background-color: #535353;
+    border-radius: 10px;
+  }
+
+  .sidebar::-webkit-scrollbar-track,
+  .content::-webkit-scrollbar-track,
+  .right-panel::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .sidebar {
+    background: #000;
+  }
+
+  .content {
+    background: #121212;
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .right-panel {
+    background: #000;
+  }
+  
+}
+
+/* ================= AJUSTE AVATAR DESKTOP ================= */
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
 }
