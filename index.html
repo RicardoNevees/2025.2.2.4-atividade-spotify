@@ -4,67 +4,322 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spotify – Interface do Usuário</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/spotify.css">
 </head>
+
+<footer class="player">
+  <div class="player-left">
+    <img src="assets/Metallica.png" alt="Capa">
+    <div>
+      <strong>Metallica</strong>
+      <span>Nothing Else Matters</span>
+    </div>
+  </div>
+
+  <div class="player-center">
+    <div class="controls">
+      <span class="control-btn">⏮</span>
+      <span class="control-btn main-control">⏸</span>
+      <span class="control-btn">⏭</span>
+      <span class="control-btn repeat-btn">
+        <img src="assets/repetir.png" alt="Repetir">
+      </span>
+    </div>
+
+    <div class="progress">
+      <span>0:42</span>
+
+      <div class="bar">
+        <div class="bar-played"></div>
+      </div>
+
+      <span>6:28</span>
+    </div>
+
+  </div>
+
+  <div class="player-right">
+    🔊
+  </div>
+</footer>
+
 
 <body>
 
 <header class="topbar">
-  <img src="assets/Spotify-logo.svg" alt="Spotify" class="logo">
+  <div class="topbar-left">
+    <img src="assets/Spotify-logo.svg" alt="Spotify" class="logo">
+  </div>
+
+  <div class="topbar-center">
+    <button class="icon-btn home-btn" aria-label="Início">
+      🏠
+    </button>
+  
+
+    <div class="search-box">
+      <span class="icon">🔍</span>
+      <input type="text" placeholder="O que você quer ouvir?" />
+    </div>
+  </div>
+
+  <div class="topbar-right">
+    <button class="premium-btn">Ver planos Premium</button>
+
+    <button class="text-btn">
+      ⬇ Instalar aplicativo
+    </button>
+
+    <button class="icon-btn" aria-label="Notificações">🔔</button>
+
+    <div class="profile">
+      <img src="assets/Ric-Perfil-Spotify.jpeg" alt="Perfil do usuário">
+    </div>
+  </div>
 </header>
+
 
 <div class="app">
 
   <!-- Sidebar exibida apenas no desktop -->
   <aside class="sidebar">
-    <nav class="menu">
-      <a class="active">Início</a>
-      <a>Buscar</a>
-      <a>Sua Biblioteca</a>
-    </nav>
+    <div class="library-header">
+      <span class="library-title">Sua Biblioteca</span>
+
+      <div class="library-actions">
+        <span class="library-icon">+</span>
+        <span class="library-icon">⤢</span>
+      </div>
+    </div>
+
+    <div class="library-filters">
+      <button class="filter-btn active">Playlists</button>
+      <button class="filter-btn">Artistas</button>
+      <button class="filter-btn">Podcasts</button>
+    </div>
+
+    <div class="library-tools">
+      <span class="tool-icon">🔍</span>
+
+      <div class="library-sort">
+        <span class="recent-text">Recentes</span>
+        <span class="tool-icon">≡</span>
+      </div>
+    </div>
+
+    <div class="liked-songs">
+      <div class="liked-icon">❤</div>
+      <span class="liked-text">Músicas Curtidas</span>
+    </div>
 
     <ul class="band-list">
-      <li><img src="assets/AvengedSevenfold.png">Avenged Sevenfold</li>
-      <li><img src="assets/BreakingBenjamin.png">Breaking Benjamin</li>
-      <li><img src="assets/LinkinPark.png">Linkin Park</li>
-      <li><img src="assets/Metallica.png">Metallica</li>
-      <li><img src="assets/sebastian.png">Sebastian</li>
-      <li><img src="assets/TenaciousD.png">Tenacious D</li>
-      <li><img src="assets/SOAD.png">System of a Down</li>
-      <li><img src="assets/Evanescence.png">Evanescence</li>
-      <li><img src="assets/Seal.png">Seal</li>
-      <li><img src="assets/MichaelJackson.png">Michael Jackson</li>
+      <li>
+        <img src="assets/AvengedSevenfold.png" alt="Avenged Sevenfold">
+
+        <div class="band-info">
+          <span class="band-name">Avenged Sevenfold</span>
+          <span class="band-type">Artista</span>
+        </div>
+      </li>
+
+      <li>
+        <img src="assets/BreakingBenjamin.png" alt="Breaking Benjamin">
+
+        <div class="band-info">
+          <span class="band-name">Breaking Benjamin</span>
+          <span class="band-type">Artista</span>
+        </div>
+      </li>
+
+      <li>
+        <img src="assets/LinkinPark.png" alt="Linkin Park">
+
+        <div class="band-info">
+          <span class="band-name">Linkin Park</span>
+          <span class="band-type">Artista</span>
+        </div>
+      </li>
+
+      <li>
+        <img src="assets/Metallica.png" alt="Metallica">
+
+        <div class="band-info">
+          <span class="band-name">Metallica</span>
+          <span class="band-type">Artista</span>
+        </div>
+      </li>
+
+      <li>
+        <img src="assets/sebastian.png" alt="Sebastian">
+
+        <div class="band-info">
+          <span class="band-name">Sebastian</span>
+          <span class="band-type">Artista</span>
+        </div>
+      </li>
+
+      <li>
+        <img src="assets/TenaciousD.png" alt="Tenacious D">
+
+        <div class="band-info">
+          <span class="band-name">Tenacious D</span>
+          <span class="band-type">Artista</span>
+        </div>
+      </li>
+
+      <li>
+        <img src="assets/SOAD.png" alt="System of a Down">
+
+        <div class="band-info">
+          <span class="band-name">System of a Down</span>
+          <span class="band-type">Artista</span>
+        </div>
+      </li>
+
+      <li>
+        <img src="assets/Evanescence.png" alt="Evanescence">
+
+        <div class="band-info">
+          <span class="band-name">Evanescence</span>
+          <span class="band-type">Artista</span>
+        </div>
+      </li>
+
+      <li>
+        <img src="assets/Seal.png" alt="Seal">
+
+        <div class="band-info">
+          <span class="band-name">Seal</span>
+          <span class="band-type">Artista</span>
+        </div>
+      </li>
+
+      <li>
+        <img src="assets/MichaelJackson.png" alt="Michael Jackson">
+
+        <div class="band-info">
+          <span class="band-name">Michael Jackson</span>
+          <span class="band-type">Artista</span>
+        </div>
+      </li>
+
     </ul>
   </aside>
 
   <!-- Conteúdo principal -->
   <main class="content">
+    <div class="content-inner">
 
-    <h1 class="desktop-title">Boa tarde</h1>
-
-    <!-- Cards principais -->
-    <section class="quick-grid">
-      <div class="quick-card"><img src="assets/Metallica.png"><span>Metallica</span></div>
-      <div class="quick-card"><img src="assets/LinkinPark.png"><span>Linkin Park</span></div>
-      <div class="quick-card"><img src="assets/sebastian.png"><span>Sebastian</span></div>
-      <div class="quick-card"><img src="assets/MichaelJackson.png"><span>Michael Jackson</span></div>
-      <div class="quick-card"><img src="assets/Evanescence.png"><span>Evanescence</span></div>
-      <div class="quick-card"><img src="assets/SOAD.png"><span>System of a Down</span></div>
-    </section>
-
-    <!-- Estações -->
-    <section class="stations">
-      <h2>Estações recomendadas</h2>
-
-      <div class="carousel">
-        <div class="album"><img src="assets/Metallica.png"><p>Rádio de Metallica</p></div>
-        <div class="album"><img src="assets/sebastian.png"><p>Playlist Sebastian</p></div>
-        <div class="album"><img src="assets/MichaelJackson.png"><p>Michael Jackson Mix</p></div>
-        <div class="album"><img src="assets/Seal.png"><p>Rádio de Seal</p></div>
+      <div class="content-filters">
+        <button class="filter-chip active">Tudo</button>
+        <button class="filter-chip">Músicas</button>
+        <button class="filter-chip">Podcasts</button>
       </div>
-    </section>
+
+      <div class="highlight-cards">
+        <div class="highlight-card">
+          <img src="assets/Metallica.png" alt="Metallica">
+          <span>Metallica</span>
+        </div>
+
+        <div class="highlight-card">
+          <img src="assets/LinkinPark.png" alt="Linkin Park">
+          <span>Linkin Park</span>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <span class="section-subtitle">FEITO PARA</span>
+        <span class="section-main">Ricardo</span>
+      </div>
+
+
+      <div class="band-grid">
+        <div class="band-card">
+          <img src="assets/TenaciousD.png">
+          <span>Tenacious D</span>
+        </div>
+
+        <div class="band-card">
+          <img src="assets/SOAD.png">
+          <span>System of a Down</span>
+        </div>
+
+        <div class="band-card">
+          <img src="assets/Metallica.png">
+          <span>Metallica</span>
+        </div>
+
+        <div class="band-card">
+          <img src="assets/spider.jpg">
+          <span>Spider-Man - Sun Flower</span>
+        </div>
+
+        <div class="band-card">
+          <img src="assets/LinkinPark.png">
+          <span>Linkin Park</span>
+        </div>
+
+        <div class="band-card">
+          <img src="assets/Evanescence.png">
+          <span>Evanescence</span>
+        </div>
+
+        <div class="band-card">
+          <img src="assets/Raimundos.png">
+          <span>Raimundos</span>
+        </div>
+
+        <div class="band-card">
+          <img src="assets/BreakingBenjamin.png">
+          <span>Breaking Benjamin</span>
+        </div>
+
+        <!-- continue com as demais bandas -->
+      </div>
+
+      <!-- Estações -->
+      <section class="stations">
+        <h2>Estações recomendadas</h2>
+
+        <div class="carousel">
+          <div class="album"><img src="assets/teddyswins.png"><p>Rádio de Teddy Swins</p></div>
+          <div class="album"><img src="assets/Metallica.png"><p>Rádio de Metallica</p></div>
+          <div class="album"><img src="assets/sebastian.png"><p>Playlist Sebastian</p></div>
+          <div class="album"><img src="assets/MichaelJackson.png"><p>Michael Jackson Mix</p></div>
+          <div class="album"><img src="assets/Justin Bieber.png"><p>Rádio de Justin Bieber</p></div>
+        </div>
+      </section>
+    </div>
 
   </main>
+
+  <!-- Coluna direita (desktop) -->
+<aside class="right-panel">
+
+  <!-- Imagem superior -->
+  <div class="right-image">
+    <img src="assets/teddyswins.png" alt="Teddy Swims">
+  </div>
+
+  <!-- Conteúdo inferior -->
+  <div class="right-content">
+    <h3 class="right-heading">
+      BAIXE O SPOTIFY PARA O WINDOWS
+    </h3>
+
+    <p class="right-text">
+      Curta áudio de alta qualidade, reprodução no modo offline e feeds de amigos cheios de novidades para você acompanhar o que não sai das playlists deles.
+    </p>
+
+    <button class="download-btn">
+      Baixe o app grátis
+    </button>
+  </div>
+
+</aside>
+
+
 
 </div>
 
