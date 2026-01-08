@@ -1,257 +1,72 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify - INTERFACE DO USUÁRIO</title>
-    <link rel="stylesheet" href="css/spotify.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify – Interface do Usuário</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <div class="app-wrapper">
-        <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox" hidden>
-        
-        <header class="top-navigation">
-            <label for="sidebar-toggle" class="menu-toggle" aria-label="Abrir menu">☰</label>
-            
-            <div class="nav-left">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Logo do Spotify" class="top-logo-bw">
-            </div>
+<header class="topbar">
+  <img src="assets/Spotify-logo.svg" alt="Spotify" class="logo">
+</header>
 
-            <div class="nav-center">
-                <div class="home-btn-bw" aria-label="Página inicial">🏠</div>
-                <div class="search-bar-wrapper">
-                    <span class="search-icon" aria-hidden="true">🔍</span>
-                    <input type="text" placeholder="O que você quer ouvir?" class="top-search-input" aria-label="Buscar músicas">
-                </div>
-            </div>
+<div class="app">
 
-            <div class="nav-right">
-                <button class="premium-btn">Ver planos Premium</button>
-                <button class="install-btn-bw"><span class="circle-arrow">⬇</span> <span class="install-text">Instalar aplicativo</span></button>
-                <div class="notification-btn-bw" aria-label="Notificações">🔔</div>
-                <div class="user-menu">
-                    <img src="assets/Ric-Perfil-Spotify.jpeg" alt="Foto de perfil do usuário" class="profile-pic">
-                </div>
-            </div>
-        </header>
+  <!-- Sidebar exibida apenas no desktop -->
+  <aside class="sidebar">
+    <nav class="menu">
+      <a class="active">Início</a>
+      <a>Buscar</a>
+      <a>Sua Biblioteca</a>
+    </nav>
 
-        <div class="main-layout">
-            <aside class="sidebar-container">
-                <label for="sidebar-toggle" class="close-sidebar" aria-label="Fechar menu">✕</label>
-                
-                <nav class="side-nav">
-                    <a href="#" class="side-item active">🏠 <span>Início</span></a>
-                    <a href="#" class="side-item">🔍 <span>Buscar</span></a>
-                    <div class="library-section">
-                        <div class="side-item">📚 <span>Sua Biblioteca</span></div>
-                        <div class="bands-list">
-                            <div class="band-item">
-                                <div class="band-icon">
-                                    <img src="assets/AvengedSevenfold.png" alt="Logo da banda Avenged Sevenfold">
-                                </div>
-                                <span>Avenged Sevenfold</span>
-                                <button class="band-play-btn" aria-label="Reproduzir Avenged Sevenfold">▶</button>
-                            </div>
-                            <div class="band-item">
-                                <div class="band-icon">
-                                    <img src="assets/BreakingBenjamin.png" alt="Logo da banda Breaking Benjamin">
-                                </div>
-                                <span>Breaking Benjamin</span>
-                                <button class="band-play-btn" aria-label="Reproduzir Breaking Benjamin">▶</button>
-                            </div>
-                            <div class="band-item">
-                                <div class="band-icon">
-                                    <img src="assets/LinkinPark.png" alt="Logo da banda Linkin Park">
-                                </div>
-                                <span>Linkin Park</span>
-                                <button class="band-play-btn" aria-label="Reproduzir Linkin Park">▶</button>
-                            </div>
-                            <div class="band-item">
-                                <div class="band-icon">
-                                    <img src="assets/Metallica.png" alt="Logo da banda Metallica">
-                                </div>
-                                <span>Metallica</span>
-                                <button class="band-play-btn" aria-label="Reproduzir Metallica">▶</button>
-                            </div>
-                            <div class="band-item">
-                                <div class="band-icon">
-                                    <img src="assets/sebastian.png" alt="Logo do Sebastian">
-                                </div>
-                                <span>Sebastian</span>
-                                <button class="band-play-btn" aria-label="Reproduzir Sebastian">▶</button>
-                            </div>
-                            <div class="band-item">
-                                <div class="band-icon">
-                                    <img src="assets/TenaciousD.png" alt="Logo da banda Tenacious D">
-                                </div>
-                                <span>Tenacious D</span>
-                                <button class="band-play-btn" aria-label="Reproduzir Tenacious D">▶</button>
-                            </div>
-                            <div class="band-item">
-                                <div class="band-icon">
-                                    <img src="assets/SOAD.png" alt="Logo da banda System of a Down">
-                                </div>
-                                <span>System of a Down</span>
-                                <button class="band-play-btn" aria-label="Reproduzir System of a Down">▶</button>
-                            </div>
-                            <div class="band-item">
-                                <div class="band-icon">
-                                    <img src="assets/Evanescence.png" alt="Logo da banda Evanescence">
-                                </div>
-                                <span>Evanescence</span>
-                                <button class="band-play-btn" aria-label="Reproduzir Evanescence">▶</button>
-                            </div>
-                            <div class="band-item">
-                                <div class="band-icon">
-                                    <img src="assets/Seal.png" alt="Logo do cantor Seal">
-                                </div>
-                                <span>Seal</span>
-                                <button class="band-play-btn" aria-label="Reproduzir Seal">▶</button>
-                            </div>
-                            <div class="band-item">
-                                <div class="band-icon">
-                                    <img src="assets/MichaelJackson.png" alt="Logo do cantor Michael Jackson">
-                                </div>
-                                <span>Michael Jackson</span>
-                                <button class="band-play-btn" aria-label="Reproduzir Michael Jackson">▶</button>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </aside>
+    <ul class="band-list">
+      <li><img src="assets/AvengedSevenfold.png">Avenged Sevenfold</li>
+      <li><img src="assets/BreakingBenjamin.png">Breaking Benjamin</li>
+      <li><img src="assets/LinkinPark.png">Linkin Park</li>
+      <li><img src="assets/Metallica.png">Metallica</li>
+      <li><img src="assets/sebastian.png">Sebastian</li>
+      <li><img src="assets/TenaciousD.png">Tenacious D</li>
+      <li><img src="assets/SOAD.png">System of a Down</li>
+      <li><img src="assets/Evanescence.png">Evanescence</li>
+      <li><img src="assets/Seal.png">Seal</li>
+      <li><img src="assets/MichaelJackson.png">Michael Jackson</li>
+    </ul>
+  </aside>
 
-            <main class="content-view">
-                <section class="main-section">
-                    <h1 class="greeting">Boa tarde</h1>
-                    <div class="quick-grid">
-                        <div class="mini-card">
-                            <div class="mini-img-container">
-                                <img src="assets/Metallica.png" alt="Álbum do Metallica">
-                            </div>
-                            <span>Metallica</span>
-                            <button class="play-btn-green" aria-label="Reproduzir Metallica">▶</button>
-                        </div>
-                        <div class="mini-card">
-                            <div class="mini-img-container">
-                                <img src="assets/LinkinPark.png" alt="Álbum do Linkin Park">
-                            </div>
-                            <span>Linkin Park</span>
-                            <button class="play-btn-green" aria-label="Reproduzir Linkin Park">▶</button>
-                        </div>
-                        <div class="mini-card">
-                            <div class="mini-img-container">
-                                <img src="assets/sebastian.png" alt="Álbum do Sebastian">
-                            </div>
-                            <span>Sebastian Mix</span>
-                            <button class="play-btn-green" aria-label="Reproduzir Sebastian Mix">▶</button>
-                        </div>
-                        <div class="mini-card">
-                            <div class="mini-img-container">
-                                <img src="assets/MichaelJackson.png" alt="Álbum do Michael Jackson">
-                            </div>
-                            <span>Michael Jackson</span>
-                            <button class="play-btn-green" aria-label="Reproduzir Michael Jackson">▶</button>
-                        </div>
-                        <div class="mini-card">
-                            <div class="mini-img-container">
-                                <img src="assets/Evanescence.png" alt="Álbum do Evanescence">
-                            </div>
-                            <span>Evanescence</span>
-                            <button class="play-btn-green" aria-label="Reproduzir Evanescence">▶</button>
-                        </div>
-                        <div class="mini-card">
-                            <div class="mini-img-container">
-                                <img src="assets/SOAD.png" alt="Álbum do System of a Down">
-                            </div>
-                            <span>System of a Down</span>
-                            <button class="play-btn-green" aria-label="Reproduzir System of a Down">▶</button>
-                        </div>
-                    </div>
-                </section>
+  <!-- Conteúdo principal -->
+  <main class="content">
 
-                <section class="main-section">
-                    <h2>Estações recomendadas</h2>
-                    <div class="carousel-container">
-                        <div class="album-card">
-                            <div class="album-img-container">
-                                <img src="assets/Metallica.png" alt="Rádio de Metallica">
-                                <button class="play-large" aria-label="Reproduzir Rádio de Metallica">▶</button>
-                            </div>
-                            <p>Rádio de Metallica</p>
-                        </div>
-                        <div class="album-card">
-                            <div class="album-img-container">
-                                <img src="assets/sebastian.png" alt="Playlist do Sebastian">
-                                <button class="play-large" aria-label="Reproduzir Playlist do Sebastian">▶</button>
-                            </div>
-                            <p>Playlist do Sebastian</p>
-                        </div>
-                        <div class="album-card">
-                            <div class="album-img-container">
-                                <img src="assets/MichaelJackson.png" alt="Michael Jackson Mix">
-                                <button class="play-large" aria-label="Reproduzir Michael Jackson Mix">▶</button>
-                            </div>
-                            <p>Michael Jackson Mix</p>
-                        </div>
-                        <div class="album-card">
-                            <div class="album-img-container">
-                                <img src="assets/Seal.png" alt="Rádio de Seal">
-                                <button class="play-large" aria-label="Reproduzir Rádio de Seal">▶</button>
-                            </div>
-                            <p>Rádio de Seal</p>
-                        </div>
-                    </div>
-                </section>
-            </main>
-        </div>
+    <h1 class="desktop-title">Boa tarde</h1>
 
-        <footer class="site-footer">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h3>Empresa</h3>
-                        <ul>
-                            <li><a href="#">Sobre</a></li>
-                            <li><a href="#">Empregos</a></li>
-                            <li><a href="#">For the Record</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Comunidades</h3>
-                        <ul>
-                            <li><a href="#">Para Artistas</a></li>
-                            <li><a href="#">Desenvolvedores</a></li>
-                            <li><a href="#">Publicidade</a></li>
-                            <li><a href="#">Investidores</a></li>
-                            <li><a href="#">Fornecedores</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Links úteis</h3>
-                        <ul>
-                            <li><a href="#">Suporte</a></li>
-                            <li><a href="#">Player da Web</a></li>
-                            <li><a href="#">Aplicativo móvel grátis</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="footer-bottom">
-                    <div class="footer-bottom-links">
-                        <a href="#">Legal</a>
-                        <a href="#">Centro de Privacidade</a>
-                        <a href="#">Política de privacidade</a>
-                        <a href="#">Cookies</a>
-                        <a href="#">Sobre anúncios</a>
-                    </div>
-                    <div class="copyright">
-                        © 2024 Spotify - INTERFACE DO USUÁRIO
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
+    <!-- Cards principais -->
+    <section class="quick-grid">
+      <div class="quick-card"><img src="assets/Metallica.png"><span>Metallica</span></div>
+      <div class="quick-card"><img src="assets/LinkinPark.png"><span>Linkin Park</span></div>
+      <div class="quick-card"><img src="assets/sebastian.png"><span>Sebastian</span></div>
+      <div class="quick-card"><img src="assets/MichaelJackson.png"><span>Michael Jackson</span></div>
+      <div class="quick-card"><img src="assets/Evanescence.png"><span>Evanescence</span></div>
+      <div class="quick-card"><img src="assets/SOAD.png"><span>System of a Down</span></div>
+    </section>
+
+    <!-- Estações -->
+    <section class="stations">
+      <h2>Estações recomendadas</h2>
+
+      <div class="carousel">
+        <div class="album"><img src="assets/Metallica.png"><p>Rádio de Metallica</p></div>
+        <div class="album"><img src="assets/sebastian.png"><p>Playlist Sebastian</p></div>
+        <div class="album"><img src="assets/MichaelJackson.png"><p>Michael Jackson Mix</p></div>
+        <div class="album"><img src="assets/Seal.png"><p>Rádio de Seal</p></div>
+      </div>
+    </section>
+
+  </main>
+
+</div>
 
 </body>
 </html>

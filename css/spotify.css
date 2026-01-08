@@ -1,1303 +1,185 @@
-/* =========================================
-   RESET E CONFIGURAÇÕES GLOBAIS
-   ========================================= */
-/* Reset CSS básico para garantir consistência entre navegadores */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; /* Inclui padding e border no cálculo do tamanho */
+/* Reset básico para evitar diferenças entre navegadores */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Previne overflow horizontal e mantém layout consistente */
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+/* Estilo base do projeto */
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Estilos base do body - Mobile First */
-body { 
-    background-color: #000; /* Fundo preto padrão do Spotify */
-    color: #fff; /* Texto branco para contraste */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte similar ao Spotify */
-    min-height: 100vh; /* Garante que o body ocupe pelo menos 100% da altura da tela */
+/* =========================
+   TOPO
+   ========================= */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  padding: 16px 32px;
 }
 
-/* Container principal que organiza a estrutura em coluna */
-.app-wrapper { 
-    display: flex; 
-    flex-direction: column; /* Organização vertical: header, main, footer */
-    min-height: 100vh; /* Ocupa toda a altura da viewport */
-    width: 100%; 
+.logo {
+  width: 28px;
 }
 
-/* =========================================
-   TOP NAVIGATION - Barra de navegação superior
-   ========================================= */
-.top-navigation { 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    padding: 8px 24px; 
-    height: 64px; 
-    background: #000; 
-    border-bottom: 1px solid #282828; /* Linha divisória sutil */
-    position: sticky; /* Fica fixo no topo ao rolar */
-    top: 0; /* Posiciona no topo da tela */
-    z-index: 100; /* Garante que fique acima de outros elementos */
+/* =========================
+   ESTRUTURA PRINCIPAL
+   ========================= */
+
+.app {
+  display: flex;
 }
 
-/* Checkbox invisível para controle do menu hamburger (sem JavaScript) */
-.sidebar-checkbox {
-    display: none; /* Escondido visualmente, mas funcional */
+/* =========================
+   SIDEBAR (DESKTOP)
+   ========================= */
+
+.sidebar {
+  display: none; /* Mobile-first */
+  width: 260px;
+  padding: 24px 16px;
+  background-color: #000;
 }
 
-/* Botão do menu hamburger - visível apenas em mobile */
-.menu-toggle {
-    display: none; /* Escondido por padrão (aparece apenas em mobile) */
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 8px;
-    margin-right: 10px;
-    order: -1; /* Coloca o menu primeiro na ordem flex */
+.menu a {
+  display: block;
+  padding: 10px 8px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #b3b3b3;
 }
 
-/* Logo do Spotify em preto e branco */
-.top-logo-bw { 
-    width: 32px; 
-    height: 32px;
-    filter: brightness(0) invert(1); /* Transforma logo em branco */
+.menu a.active {
+  color: #fff;
 }
 
-/* Container central da navegação (home + search) */
-.nav-center { 
-    display: flex; 
-    align-items: center; 
-    gap: 12px; 
-    flex: 0 1 500px; /* Cresce até 500px, encolhe se necessário */
+/* Lista de bandas fica com menos destaque que o menu */
+.band-list {
+  margin-top: 24px;
+  list-style: none;
 }
 
-/* Botão home com estilo preto e branco */
-.home-btn-bw { 
-    background: #1f1f1f; 
-    width: 44px; 
-    height: 44px; 
-    border-radius: 50%; /* Formato circular */
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-size: 1.2rem;
-    filter: grayscale(100%) brightness(1.5); /* Remove cor do emoji */
-    cursor: pointer;
-    transition: background 0.2s; /* Transição suave ao hover */
+.band-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 0.85rem;
+  color: #b3b3b3;
 }
 
-.home-btn-bw:hover {
-    background: #282828; /* Escurece ao passar o mouse */
+.band-list img {
+  width: 32px;
+  height: 32px;
 }
 
-/* Barra de pesquisa com estilo do Spotify */
-.search-bar-wrapper { 
-    background: #1f1f1f; 
-    flex: 1; /* Ocupa espaço disponível */
-    height: 44px; 
-    border-radius: 500px; /* Bordas extremamente arredondadas */
-    display: flex; 
-    align-items: center; 
-    padding: 0 20px; 
-    gap: 12px; 
-    border: 1px solid transparent;
-    transition: border 0.2s; /* Transição para foco */
+/* =========================
+   CONTEÚDO
+   ========================= */
+
+.content {
+  flex: 1;
+  padding: 24px 32px;
+  max-width: 1200px;
+
+  /* Gradiente semelhante ao Spotify */
+  background: linear-gradient(
+    180deg,
+    #3b0a0a 0%,
+    #1f0a0a 25%,
+    #121212 55%
+  );
 }
 
-/* Efeito de borda quando a barra de pesquisa está em foco */
-.search-bar-wrapper:focus-within {
-    border: 1px solid #535353;
+/* Título principal */
+.desktop-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
 }
 
-/* Input de pesquisa */
-.top-search-input { 
-    background: transparent; 
-    border: none; 
-    color: #fff; 
-    width: 100%; 
-    outline: none; /* Remove outline padrão, estilizamos com focus */
-    font-size: 0.95rem;
+/* =========================
+   GRID "BOA TARDE"
+   ========================= */
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 16px;
+  column-gap: 24px;
+  margin-bottom: 40px;
 }
 
-/* Ícone da lupa */
-.search-icon { 
-    filter: grayscale(100%) brightness(1.5); /* Ícone em preto e branco */
-    font-size: 1rem;
+/* Cards principais */
+.quick-card {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  background-color: #2a2a2a;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-/* Lado direito da navegação (botões e perfil) */
-.nav-right { 
-    display: flex; 
-    align-items: center; 
-    gap: 16px; 
+.quick-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
 }
 
-/* Botão Premium (destaque) */
-.premium-btn { 
-    background: #fff; 
-    color: #000; 
-    border: none; 
-    padding: 10px 20px; 
-    border-radius: 500px; /* Formato "pill" */
-    font-weight: bold; 
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: transform 0.2s; /* Efeito de escala ao hover */
+.quick-card span {
+  padding-left: 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
-.premium-btn:hover {
-    transform: scale(1.05); /* Leve aumento ao passar mouse */
+/* =========================
+   ESTAÇÕES RECOMENDADAS
+   ========================= */
+
+.stations h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
 }
 
-/* Botões em preto e branco (instalar e notificações) */
-.install-btn-bw, .notification-btn-bw { 
-    background: transparent; 
-    color: #b3b3b3; 
-    border: none; 
-    cursor: pointer; 
-    font-weight: bold; 
-    display: flex; 
-    align-items: center; 
-    gap: 6px; 
-    filter: grayscale(100%);
-    font-size: 0.9rem;
-    padding: 8px;
-    border-radius: 4px;
-    transition: background 0.2s; /* Transição suave de fundo */
+.carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
 }
 
-.install-btn-bw:hover, .notification-btn-bw:hover {
-    background: #282828; /* Fundo sutil ao hover */
+/* Cards das estações */
+.album {
+  background-color: #181818;
+  padding: 12px;
+  border-radius: 8px;
+  min-width: 180px;
 }
 
-/* Classe para controlar visibilidade do texto "Instalar aplicativo" */
-.install-text {
-    display: inline;
+.album img {
+  width: 100%;
+  border-radius: 4px;
 }
 
-/* Ícone de download com círculo */
-.circle-arrow { 
-    border: 1.5px solid #b3b3b3; 
-    border-radius: 50%; 
-    width: 20px; 
-    height: 20px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-size: 0.7rem; 
+.album p {
+  margin-top: 8px;
+  font-size: 0.85rem;
 }
 
-/* Foto de perfil do usuário */
-.profile-pic { 
-    width: 32px; 
-    height: 32px; 
-    border-radius: 50%; /* Formato circular */
-    object-fit: cover; /* Garante que a imagem preencha o círculo */
-    border: 2px solid #1DB954; /* Borda verde Spotify */
-}
+/* =========================
+   DESKTOP
+   ========================= */
 
-/* =========================================
-   BARRA LATERAL (Sidebar) - Navegação vertical
-   ========================================= */
-.main-layout { 
-    display: flex; 
-    flex: 1; /* Ocupa espaço restante entre header e footer */
-    overflow: hidden; 
-    gap: 8px; 
-    padding: 8px;
-    position: relative;
-}
+@media (min-width: 1024px) {
 
-/* Container da sidebar */
-.sidebar-container { 
-    width: 300px; /* Largura fixa para desktop */
-    background: #121212; /* Fundo escuro do Spotify */
-    border-radius: 8px; 
-    padding: 20px 16px;
-    overflow-y: auto; /* Scroll vertical se necessário */
-    height: calc(100vh - 140px); /* Altura responsiva */
-    transition: left 0.3s ease; /* Transição suave para menu mobile */
-    flex-shrink: 0; /* Não encolhe */
-}
-
-/* Botão para fechar sidebar em mobile */
-.close-sidebar {
-    display: none; /* Escondido por padrão */
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: #282828;
-    border: none;
-    color: #fff;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    z-index: 1001; /* Acima do sidebar */
-}
-
-/* Estilização da scrollbar da sidebar */
-.sidebar-container::-webkit-scrollbar {
-    width: 8px;
-}
-
-.sidebar-container::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.sidebar-container::-webkit-scrollbar-thumb {
-    background: #535353;
-    border-radius: 4px;
-}
-
-.sidebar-container::-webkit-scrollbar-thumb:hover {
-    background: #b3b3b3;
-}
-
-/* Navegação vertical dentro da sidebar */
-.side-nav {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-/* Itens da navegação lateral */
-.side-item { 
-    display: flex; 
-    align-items: center; 
-    gap: 16px; 
-    color: #b3b3b3; /* Cinza Spotify */
-    padding: 12px 16px; 
-    font-weight: 700; 
-    text-decoration: none;
-    font-size: 0.95rem;
-    border-radius: 6px;
-    transition: all 0.2s ease; /* Transição suave para todos os estilos */
-    cursor: pointer;
-}
-
-/* Efeito hover nos itens */
-.side-item:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.08); /* Fundo sutil semi-transparente */
-}
-
-/* Item ativo (selecionado) */
-.side-item.active { 
-    color: #fff; 
-    background: rgba(255, 255, 255, 0.12); /* Fundo mais intenso */
-}
-
-.side-item span {
-    font-size: 0.95rem;
-}
-
-/* Seção "Sua Biblioteca" */
-.library-section {
-    margin-top: 20px;
-    flex: 1; /* Ocupa espaço restante */
-}
-
-.library-section .side-item {
-    margin-bottom: 15px;
-}
-
-/* =========================================
-   LISTA DE BANDAS NA SIDEBAR
-   ========================================= */
-.bands-list {
-    display: flex;
-    flex-direction: column;
-    gap: 6px; /* Espaçamento pequeno entre itens */
-    margin-top: 10px;
-}
-
-/* Cada item de banda (card) */
-.band-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    position: relative; /* Para posicionar botão play absoluto */
-    background: transparent;
-}
-
-.band-item:hover {
-    background: rgba(255, 255, 255, 0.08);
-}
-
-/* Container da imagem da banda */
-.band-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 4px;
-    overflow: hidden; /* Corta imagem que ultrapassar */
-    flex-shrink: 0; /* Não encolhe */
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Sombra sutil */
-}
-
-.band-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  .sidebar {
     display: block;
-}
+  }
 
-/* Nome da banda */
-.band-item span {
-    color: #fff;
-    font-weight: 500;
-    font-size: 0.95rem;
-    flex: 1; /* Ocupa espaço disponível */
-    white-space: nowrap; /* Não quebra linha */
-    overflow: hidden; /* Esconde overflow */
-    text-overflow: ellipsis; /* Adiciona "..." no final */
-}
-
-/* Botão play nas bandas - aparece no hover */
-.band-play-btn {
-    background: #1DB954; /* Verde Spotify */
-    border: none;
-    border-radius: 50%; /* Formato circular */
-    width: 36px;
-    height: 36px;
-    display: none; /* Escondido por padrão */
-    align-items: center;
-    justify-content: center;
-    color: #000;
-    font-size: 0.8rem;
-    cursor: pointer;
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%); /* Centraliza verticalmente */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-    transition: all 0.2s ease;
-}
-
-/* Mostra botão play quando hover no item */
-.band-item:hover .band-play-btn {
-    display: flex;
-}
-
-.band-play-btn:hover {
-    background: #1ed760; /* Verde mais claro */
-    transform: translateY(-50%) scale(1.05); /* Efeito de escala */
-}
-
-/* Fallback visual para bandas sem imagem */
-.band-icon:not(:has(img)) {
-    background: linear-gradient(135deg, #1DB954, #191414); /* Gradiente Spotify */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-weight: bold;
-    font-size: 0.8rem;
-}
-
-.band-icon:not(:has(img))::before {
-    content: "♪"; /* Ícone musical */
-    color: #fff;
-    font-size: 1.2rem;
-}
-
-/* =========================================
-   CONTEÚDO PRINCIPAL (Área com gradiente)
-   ========================================= */
-.content-view { 
-    flex: 1; /* Ocupa espaço disponível */
-    background: linear-gradient(to bottom, #4d0099 0%, #2d0044 15%, #121212 25%, #121212 100%); 
-    /* Gradiente Spotify: roxo no topo, transição para preto */
-    border-radius: 8px; 
-    overflow-y: auto; /* Scroll vertical se necessário */
-    padding: 24px 32px;
-    min-height: calc(100vh - 200px); /* Altura mínima responsiva */
-}
-
-/* Saudação "Boa tarde" */
-.greeting { 
-    font-size: 2.2rem; 
-    margin-bottom: 28px;
-    font-weight: 700;
-}
-
-/* Seções principais */
-.main-section {
-    margin-bottom: 40px;
-}
-
-/* Títulos das seções */
-.main-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-/* =========================================
-   MINI CARDS (Seção "Boa tarde")
-   ========================================= */
-.quick-grid { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas por padrão (desktop) */
-    gap: 16px; 
-    margin-bottom: 40px; 
-}
-
-/* Card individual */
-.mini-card { 
-    background: rgba(255,255,255,0.08); /* Fundo semi-transparente */
-    border-radius: 6px; 
-    display: flex; 
-    align-items: center; 
-    position: relative; 
-    height: 72px; 
-    cursor: pointer;
-    transition: background 0.3s;
-    overflow: hidden;
-}
-
-.mini-card:hover { 
-    background: rgba(255,255,255,0.12); /* Fundo mais claro no hover */
-}
-
-/* Container da imagem no card */
-.mini-img-container {
-    width: 72px;
-    height: 72px;
-    background: #000;
-    border-radius: 6px 0 0 6px; /* Bordas arredondadas apenas à esquerda */
-    overflow: hidden;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(45deg, #333, #000); /* Gradiente de fallback */
-}
-
-.mini-img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Mostra imagem inteira sem cortar */
-    display: block;
-    max-width: 100%; /* Limite máximo */
-    max-height: 100%;
-    padding: 8px; /* Espaçamento interno */
-}
-
-.mini-card span { 
-    padding-left: 18px; 
-    font-weight: 600; 
-    font-size: 0.95rem; 
-    flex: 1;
-    color: #ffffff;
-}
-
-/* Botão play nos mini cards */
-.play-btn-green { 
-    background: #1DB954; 
-    border: none; 
-    border-radius: 50%; 
-    width: 42px; 
-    height: 42px; 
-    position: absolute; 
-    right: 12px; 
-    display: none; /* Escondido por padrão */
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    transition: transform 0.2s;
-    color: #000;
-    font-weight: bold;
-}
-
-.mini-card:hover .play-btn-green { 
-    display: flex; /* Aparece no hover */
-}
-
-.play-btn-green:hover {
-    transform: scale(1.05); /* Leve aumento */
-}
-
-/* =========================================
-   CARROSSEL (Estações recomendadas)
-   ========================================= */
-.carousel-container { 
-    display: flex; 
-    gap: 20px; 
-    overflow-x: auto; /* Scroll horizontal */
-    padding-bottom: 20px;
-    scrollbar-width: thin; /* Scrollbar fina no Firefox */
-    scrollbar-color: #535353 #121212;
-    -webkit-overflow-scrolling: touch; /* Scroll suave em dispositivos touch */
-}
-
-/* Estilização da scrollbar do carrossel */
-.carousel-container::-webkit-scrollbar {
-    height: 6px;
-}
-
-.carousel-container::-webkit-scrollbar-track {
-    background: #121212;
-    border-radius: 3px;
-}
-
-.carousel-container::-webkit-scrollbar-thumb {
-    background: #1DB954; /* Verde Spotify */
-    border-radius: 3px;
-}
-
-.carousel-container::-webkit-scrollbar-thumb:hover {
-    background: #1ed760; /* Verde mais claro */
-}
-
-/* Card individual do carrossel */
-.album-card { 
-    background: #181818; 
-    padding: 16px; 
-    border-radius: 8px; 
-    min-width: 180px; /* Largura mínima */
-    transition: all 0.3s ease;
-    cursor: pointer;
-    flex-shrink: 0; /* Não encolhe */
-}
-
-.album-card:hover { 
-    background: #282828; 
-    transform: translateY(-4px); /* Efeito de levantar */
-}
-
-/* Container da imagem do álbum */
-.album-img-container { 
-    position: relative; 
-    width: 100%; 
-    aspect-ratio: 1/1; /* Mantém proporção quadrada */
-    background: #000; 
-    border-radius: 6px; 
-    overflow: hidden; 
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.album-img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Mostra imagem inteira (importante para Metallica) */
-    display: block;
-    transition: transform 0.3s;
-    background: #000; /* Fundo preto para bordas */
-}
-
-.album-card:hover .album-img-container img {
-    transform: scale(1.05); /* Leve zoom no hover */
-}
-
-/* Botão play grande nos cards do carrossel */
-.play-large { 
-    background: #1DB954; 
-    border: none; 
-    border-radius: 50%; 
-    width: 50px; 
-    height: 50px; 
-    position: absolute; 
-    bottom: 10px; 
-    right: 10px; 
-    opacity: 0; /* Invisível por padrão */
-    transform: translateY(8px); /* Posicionado abaixo */
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    cursor: pointer;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
-    transition: all 0.3s ease;
-    color: #000;
-    font-weight: bold;
-}
-
-.album-card:hover .play-large { 
-    opacity: 1; /* Aparece no hover */
-    transform: translateY(0); /* Sobe para posição normal */
-}
-
-.play-large:hover {
-    transform: scale(1.1) translateY(0); /* Aumenta ao hover */
-    background: #1ed760;
-}
-
-/* Texto do card do carrossel */
-.album-card p { 
-    margin-top: 12px; 
-    font-weight: 600; 
-    font-size: 0.85rem; /* Fonte pequena para caber nomes longos */
-    line-height: 1.2;
-    white-space: nowrap; /* Não quebra linha */
-    overflow: hidden; /* Esconde overflow */
-    text-overflow: ellipsis; /* Adiciona "..." */
-    width: 100%;
-    text-align: center;
-}
-
-/* =========================================
-   FOOTER - Rodapé do site
-   ========================================= */
-.site-footer {
-    background: #000;
-    padding: 20px 32px;
-    border-top: 1px solid #282828;
-    margin-top: auto; /* Empurra para baixo quando conteúdo é curto */
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.footer-links {
-    display: flex;
-    flex-wrap: wrap; /* Quebra linha se necessário */
-    gap: 30px;
-}
-
-.footer-column h3 {
-    font-size: 0.9rem;
-    color: #fff;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-.footer-column ul {
-    list-style: none;
-}
-
-.footer-column ul li {
-    margin-bottom: 8px;
-}
-
-.footer-column ul li a {
-    color: #b3b3b3;
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: color 0.2s;
-}
-
-.footer-column ul li a:hover {
-    color: #fff;
-}
-
-/* Parte inferior do footer */
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-    border-top: 1px solid #282828;
-}
-
-.footer-bottom-links {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-bottom-links a {
-    color: #b3b3b3;
-    text-decoration: none;
-    font-size: 0.8rem;
-}
-
-.copyright {
-    color: #b3b3b3;
-    font-size: 0.8rem;
-}
-
-/* =========================================
-   RESPONSIVIDADE - Mobile First Approach
-   ========================================= */
-
-/* 
-BREAKPOINTS UTILIZADOS:
-1. Até 380px: Mobile muito pequeno
-2. 381px - 480px: Mobile padrão
-3. 481px - 767px: Mobile grande / Tablet pequeno
-4. 768px - 1023px: Tablet
-5. 1024px - 1199px: Desktop pequeno
-6. 1200px+: Desktop grande
-*/
-
-/* =========================================
-   1. MOBILE MUITO PEQUENO (até 380px)
-   ========================================= */
-@media (max-width: 380px) {
-    /* Header mais compacto */
-    .top-navigation {
-        padding: 8px 12px;
-        height: 56px;
-    }
-    
-    /* Mostra menu hamburger */
-    .menu-toggle {
-        display: block;
-    }
-    
-    /* Esconde logo para economizar espaço */
-    .top-logo-bw {
-        display: none;
-    }
-    
-    /* Sidebar como menu lateral móvel */
-    .sidebar-container {
-        position: fixed;
-        left: -100%; /* Escondido fora da tela */
-        top: 56px;
-        width: 85%; /* Ocupa 85% da largura */
-        height: calc(100vh - 56px);
-        z-index: 1000;
-        transition: left 0.3s ease; /* Animação de entrada */
-        border-radius: 0 8px 8px 0;
-        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5); /* Sombra para destaque */
-    }
-    
-    /* Quando o checkbox está marcado, mostra sidebar */
-    #sidebar-toggle:checked ~ .sidebar-container {
-        left: 0; /* Traz para dentro da tela */
-    }
-    
-    /* Mostra botão para fechar */
-    .close-sidebar {
-        display: flex;
-    }
-    
-    /* Ajustes no layout do header */
-    .nav-center {
-        flex: 1;
-        gap: 8px;
-    }
-    
-    .home-btn-bw {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
-    }
-    
-    .search-bar-wrapper {
-        height: 36px;
-        padding: 0 12px;
-    }
-    
-    .top-search-input {
-        font-size: 0.85rem;
-    }
-    
-    .nav-right {
-        gap: 6px;
-    }
-    
-    /* Esconde botões não essenciais */
-    .premium-btn {
-        display: none;
-    }
-    
-    .install-btn-bw {
-        padding: 6px;
-    }
-    
-    .install-text {
-        display: none; /* Esconde texto, mostra apenas ícone */
-    }
-    
-    .circle-arrow {
-        margin: 0;
-    }
-    
-    .notification-btn-bw span {
-        display: none;
-    }
-    
-    /* Ajustes no conteúdo principal */
-    .content-view {
-        padding: 16px;
-        width: 100%;
-    }
-    
-    .greeting {
-        font-size: 1.6rem;
-        margin-bottom: 20px;
-    }
-    
-    /* Grid de 1 coluna */
-    .quick-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        margin-bottom: 30px;
-    }
-    
-    .mini-card {
-        height: 60px;
-    }
-    
-    .mini-img-container {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .mini-card span {
-        font-size: 0.85rem;
-        padding-left: 12px;
-    }
-    
-    .play-btn-green {
-        width: 36px;
-        height: 36px;
-        right: 8px;
-    }
-    
-    .main-section h2 {
-        font-size: 1.3rem;
-        margin-bottom: 16px;
-    }
-    
-    /* Carrossel com scroll snap para melhor UX mobile */
-    .carousel-container {
-        gap: 12px;
-        scroll-snap-type: x mandatory; /* "Gruda" nos cards ao scroll */
-    }
-    
-    .album-card {
-        min-width: 140px;
-        max-width: 140px;
-        padding: 12px;
-        scroll-snap-align: start; /* Alinha cards no início */
-    }
-    
-    .album-card p {
-        font-size: 0.75rem;
-    }
-    
-    .play-large {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-    
-    /* Footer em coluna para mobile */
-    .site-footer {
-        padding: 16px;
-    }
-    
-    .footer-links {
-        gap: 20px;
-        flex-direction: column;
-    }
-    
-    .footer-bottom {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-    
-    .footer-bottom-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
-    
-    .footer-bottom-links a {
-        font-size: 0.75rem;
-    }
-    
-    .copyright {
-        font-size: 0.75rem;
-        text-align: center;
-    }
-}
-
-/* =========================================
-   2. MOBILE (381px - 480px)
-   ========================================= */
-@media (min-width: 381px) and (max-width: 480px) {
-    .top-navigation {
-        padding: 8px 12px;
-        height: 56px;
-    }
-    
-    .menu-toggle {
-        display: block;
-    }
-    
-    .sidebar-container {
-        position: fixed;
-        left: -100%;
-        top: 56px;
-        width: 85%;
-        height: calc(100vh - 56px);
-        z-index: 1000;
-        transition: left 0.3s ease;
-        border-radius: 0 8px 8px 0;
-        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5);
-    }
-    
-    #sidebar-toggle:checked ~ .sidebar-container {
-        left: 0;
-    }
-    
-    .close-sidebar {
-        display: flex;
-    }
-    
-    .nav-center {
-        flex: 1;
-        gap: 8px;
-    }
-    
-    .home-btn-bw {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
-    }
-    
-    .search-bar-wrapper {
-        height: 36px;
-        padding: 0 12px;
-    }
-    
-    .top-search-input {
-        font-size: 0.85rem;
-    }
-    
-    .nav-right {
-        gap: 8px;
-    }
-    
-    .premium-btn {
-        display: none;
-    }
-    
-    .install-btn-bw {
-        padding: 6px;
-    }
-    
-    .install-text {
-        display: none;
-    }
-    
-    .content-view {
-        padding: 16px;
-        width: 100%;
-    }
-    
-    .greeting {
-        font-size: 1.6rem;
-        margin-bottom: 20px;
-    }
-    
-    .quick-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        margin-bottom: 30px;
-    }
-    
-    .mini-card {
-        height: 60px;
-    }
-    
-    .mini-img-container {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .mini-card span {
-        font-size: 0.85rem;
-        padding-left: 12px;
-    }
-    
-    .play-btn-green {
-        width: 36px;
-        height: 36px;
-        right: 8px;
-    }
-    
-    .main-section h2 {
-        font-size: 1.3rem;
-        margin-bottom: 16px;
-    }
-    
-    .carousel-container {
-        gap: 12px;
-        scroll-snap-type: x mandatory;
-    }
-    
-    .album-card {
-        min-width: 140px;
-        max-width: 140px;
-        padding: 12px;
-        scroll-snap-align: start;
-    }
-    
-    .album-card p {
-        font-size: 0.75rem;
-    }
-    
-    .play-large {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-    
-    .site-footer {
-        padding: 16px;
-    }
-    
-    .footer-links {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .footer-bottom {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-}
-
-/* =========================================
-   3. MOBILE GRANDE / TABLET PEQUENO (481px - 767px)
-   ========================================= */
-@media (min-width: 481px) and (max-width: 767px) {
-    .menu-toggle {
-        display: block;
-    }
-    
-    .sidebar-container {
-        position: fixed;
-        left: -100%;
-        top: 64px;
-        width: 320px;
-        height: calc(100vh - 64px);
-        z-index: 1000;
-        transition: left 0.3s ease;
-    }
-    
-    #sidebar-toggle:checked ~ .sidebar-container {
-        left: 0;
-    }
-    
-    .close-sidebar {
-        display: flex;
-    }
-    
-    .nav-center {
-        flex: 0 1 300px;
-    }
-    
-    .install-text {
-        display: none;
-    }
-    
-    .premium-btn {
-        display: none;
-    }
-    
-    .content-view {
-        padding: 20px;
-    }
-    
-    .quick-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-    
-    .album-card {
-        min-width: 150px;
-    }
-    
-    .site-footer {
-        padding: 20px;
-    }
-    
-    .footer-links {
-        gap: 25px;
-    }
-}
-
-/* =========================================
-   4. TABLET (768px - 1023px)
-   ========================================= */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .menu-toggle {
-        display: none; /* Esconde menu hamburger */
-    }
-    
-    .sidebar-container {
-        width: 240px;
-        display: block !important; /* Garante visibilidade */
-    }
-    
-    .quick-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
-        gap: 14px;
-    }
-    
-    .album-card {
-        min-width: 160px;
-    }
-    
-    .install-text {
-        display: inline; /* Mostra texto "Instalar" */
-    }
-    
-    .premium-btn {
-        display: inline-block;
-        padding: 8px 14px;
-        font-size: 0.85rem;
-    }
-    
-    .site-footer {
-        padding: 20px 24px;
-    }
-    
-    .footer-links {
-        gap: 25px;
-    }
-}
-
-/* =========================================
-   5. DESKTOP PEQUENO (1024px - 1199px)
-   ========================================= */
-@media (min-width: 1024px) and (max-width: 1199px) {
-    .menu-toggle {
-        display: none;
-    }
-    
-    .sidebar-container {
-        width: 280px;
-    }
-    
-    .quick-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 colunas */
-    }
-    
-    .album-card {
-        min-width: 170px;
-    }
-}
-
-/* =========================================
-   6. DESKTOP GRANDE (1200px+)
-   ========================================= */
-@media (min-width: 1200px) {
-    .menu-toggle {
-        display: none;
-    }
-    
-    .sidebar-container {
-        width: 300px;
-    }
-    
-    .quick-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .album-card {
-        min-width: 180px;
-    }
-    
-    /* Limita largura máxima em telas muito grandes */
-    .app-wrapper {
-        max-width: 1600px;
-        margin: 0 auto;
-    }
-}
-
-/* =========================================
-   MELHORIAS DE ACESSIBILIDADE
-   ========================================= */
-
-/* Indicadores de foco para navegação por teclado */
-button:focus-visible,
-a:focus-visible,
-input:focus-visible {
-    outline: 2px solid #1DB954;
-    outline-offset: 3px;
-    border-radius: 4px;
-}
-
-/* Fallback para navegadores que não suportam focus-visible */
-button:focus,
-a:focus,
-input:focus {
-    outline: 2px solid #1DB954;
-    outline-offset: 2px;
-}
-
-/* =========================================
-   ANIMAÇÕES E TRANSITIONS
-   ========================================= */
-
-/* Animações suaves apenas para usuários que não preferem redução de movimento */
-@media (prefers-reduced-motion: no-preference) {
-    .mini-card,
-    .album-card,
-    .band-item,
-    .side-item,
-    .sidebar-container {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Curva de easing suave */
-    }
-}
-
-/* Respeita preferência por redução de movimento */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* =========================================
-   ESTADOS DE CARREGAMENTO (Skeleton loading)
-   ========================================= */
-
-/* Efeito skeleton loading para imagens que estão carregando */
-.band-icon:empty,
-.mini-img-container:empty,
-.album-img-container:empty {
-    background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
-    background-size: 200% 100%;
-    animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
-
-/* Remove animação quando a imagem carrega */
-.band-icon:has(img),
-.mini-img-container:has(img),
-.album-img-container:has(img) {
-    background: #000;
-    animation: none;
+  .quick-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
