@@ -33,6 +33,36 @@ body {
   z-index: 3000;
 }
 
+.header {   /*garanta que o header não tenha sombra direta:  */
+  box-shadow: none;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 24px;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0)
+  );
+
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.header:has(.mobile-filters:active)::after,
+.header:has(.mobile-filters:focus-within)::after {
+  opacity: 1;
+}
+
+
 
 .logo {
   width: 28px;
