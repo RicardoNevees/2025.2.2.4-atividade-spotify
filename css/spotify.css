@@ -38,6 +38,7 @@ body {
 }
 
 .logo-switch {
+  margin-right: 8px;
   content: url("../assets/Ric-Perfil-Spotify.jpeg");
   width: 28px;
   height: 28px;
@@ -223,7 +224,6 @@ body {
   color: #000;
 }
 
-
 /* ================= MOBILE GRID ================= */
 @media (max-width: 767px) {
   .carousel {
@@ -237,9 +237,6 @@ body {
     min-width: 150px;
   }
 }
-
-
-
 
 /* ==================================================
    TABLET
@@ -258,6 +255,27 @@ body {
   body {
     overflow: hidden;
   }
+
+
+  @media (min-width: 1024px) {
+
+  /* CARROSSEL DESKTOP – LINHAS HORIZONTAIS */
+  .carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 8px;
+
+    scrollbar-width: none;          /* Firefox */
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none;                  /* Chrome / Edge / Safari */
+  }
+
+}
+
 
   /* ================= HEADER ================= */
   .header {
