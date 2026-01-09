@@ -25,13 +25,22 @@ body {
   position: relative;
 }
 
-.header {   /* fixa barras superior e inferior quando a tela se movimenta pra cima ou pra baixo */
+/* Header fixo APENAS no mobile */
+.header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 3000;
 }
+
+/* No desktop, header volta ao fluxo normal */
+@media (min-width: 1024px) {
+  .header {
+    position: relative;
+  }
+}
+
 
 .logo {
   width: 28px;
@@ -255,7 +264,6 @@ body {
   body {
     overflow: hidden;
   }
-
 
   @media (min-width: 1024px) {
 
@@ -713,6 +721,61 @@ body {
 
 .carousel::-webkit-scrollbar-track {
   background: transparent;
+}
+
+.carousel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ===== FIX CARROSSEL DESKTOP (SEGURO) ===== */
+@media (min-width: 1024px) {
+
+  .content .carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .content .carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .content .carousel {
+    scrollbar-width: none;
+  }
+
+  .content .card {
+    flex: 0 0 150px;
+  }
+}
+
+/* ================= DESKTOP – CARROSSEL FUNCIONAL ================= */
+@media (min-width: 1024px) {
+
+  .content {
+    overflow-y: auto;
+  }
+
+  .content .carousel {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 8px;
+
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .content .carousel::-webkit-scrollbar {
+    display: none; /* Chrome / Edge / Safari */
+  }
+
+  .content .card {
+    flex: 0 0 150px;
+    min-width: 150px;
+  }
+
 }
 
 }
