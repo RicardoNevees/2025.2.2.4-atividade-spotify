@@ -14,7 +14,7 @@
 
 <!-- ================= HEADER ================= -->
 <header class="header">
-  <img src="assets/Spotify-logo.svg" alt="Spotify" class="logo" />
+  <img src="assets/Spotify-logo.svg" alt="Spotify" class="logo logo-switch" />
 
   <!-- CENTRAL (DESKTOP) -->
   <div class="header-center">
@@ -158,10 +158,34 @@
 
 <!-- ================= MOBILE NAV ================= -->
 <nav class="mobile-nav">
-  <button>🏠<span>Início</span></button>
-  <button>🔍<span>Buscar</span></button>
-  <button>🎵<span>Biblioteca</span></button>
+  <button class="mobile-item active">
+    <span class="material-symbols-outlined">home</span>
+    <span>Início</span>
+  </button>
+
+  <button class="mobile-item">
+    <span class="material-symbols-outlined">search</span>
+    <span>Buscar</span>
+  </button>
+
+  <button class="mobile-item">
+    <span class="material-symbols-outlined">library_music</span>
+    <span>Sua Biblioteca</span>
+  </button>
+
+  <button class="mobile-item">
+    <img src="assets/Spotify-logo.svg" class="spotify-logo" alt="Spotify" />
+    <span>Premium</span>
+  </button>
+
+
+  <button class="mobile-item">
+    <span class="material-symbols-outlined">add</span>
+    <span>Criar</span>
+  </button>
+
 </nav>
+
 
 </body>
 </html>
