@@ -25,6 +25,15 @@ body {
   position: relative;
 }
 
+.header {   /* fixa barras superior e inferior quando a tela se movimenta pra cima ou pra baixo */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3000;
+}
+
+
 .logo {
   width: 28px;
 }
@@ -182,9 +191,19 @@ body {
 .mobile-filters {
   display: flex;
   gap: 8px;
-  padding: 12px 16px;
+  flex: 1;
   overflow-x: auto;
+  overflow-y: hidden;
+
+  /* esconder scrollbar */
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE / Edge antigo */
 }
+
+.mobile-filters::-webkit-scrollbar {
+  display: none;                  /* Chrome / Safari */
+}
+
 
 .mobile-filters button {
   background: transparent;
