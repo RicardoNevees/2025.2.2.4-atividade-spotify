@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spotify – Interface do Usuário</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
   <link rel="stylesheet" href="css/spotify.css" />
 </head>
 
@@ -15,7 +18,10 @@
 
   <!-- CENTRAL (DESKTOP) -->
   <div class="header-center">
-    <button class="home-btn" aria-label="Início">🏠</button>
+    <button class="home-btn" aria-label="Início">
+      <span class="material-symbols-outlined">home</span>
+    </button>
+
 
     <div class="search-box">
       <span>🔍</span>
@@ -26,7 +32,11 @@
   <!-- AÇÕES (DESKTOP) -->
   <div class="header-actions">
     <button class="btn-premium">Ver planos Premium</button>
-    <button class="btn-text">⬇ Instalar aplicativo</button>
+    <button class="btn-text install-btn">
+      <span class="material-symbols-outlined">arrow_circle_down</span>
+      Instalar aplicativo
+    </button>
+
     <button class="icon-btn" aria-label="Notificações">🔔</button>
     <img src="assets/Ric-Perfil-Spotify.jpeg" alt="Perfil do usuário" class="avatar" />
   </div>

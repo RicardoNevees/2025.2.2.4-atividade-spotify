@@ -171,6 +171,10 @@ body {
     font-size: 1rem;
   }
 
+  .home-btn:hover .material-symbols-outlined {
+  color: #fff;
+}
+
   .search-box {
     display: flex;
     align-items: center;
@@ -214,6 +218,19 @@ body {
     cursor: pointer;
     font-size: 0.85rem;
   }
+
+  .install-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.install-btn .material-symbols-outlined {
+  font-size: 18px;      /* tamanho parecido com o Spotify */
+  color: #e5e5e5;
+  font-variation-settings: 'FILL' 0;
+}
+
 
   .icon-btn {
     width: 36px;
